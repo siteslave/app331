@@ -1,0 +1,24 @@
+<ion-view title="History">
+  <ion-content>
+    <div class="list card">
+      <label class="item item-input">
+        <span class="input-label">เลือกวันที่</span>
+        <input type="date" ng-model="$parent.dateServ" ng-change="filterred()">
+      </label>
+    </div>
+    <div class="list card">
+      <div class="item item-icon-left" ng-if="!services.length">
+        <i class="icon ion-information-circled"></i> ไม่พบรายการ
+        <span class="item-note">
+          กรุณาเลือกวันที่
+        </span>
+      </div>
+      <a class="item item-icon-left" href="#/srrt/srrt-upload/{{ s.id }}" ng-repeat="s in services" ng-if="services.length">
+        <i class="icon ion-ios-stopwatch" ng-class="{'balanced': s.success == 3, 'assertive': s.success == 0, 'energized': s.success == 2, 'stable': s.success == 1}"></i> {{ s.date_serv }}
+        <span class="item-note">
+          {{ s.report_date }}
+        </span>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

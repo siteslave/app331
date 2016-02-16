@@ -1,0 +1,20 @@
+<ion-view view-title="แยกรายหน่วยบริการ">
+  <ion-content>
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="$parent.query">
+      </label>
+    </div>
+
+    <div class="list">
+      <a href="#" class="item" ng-if="!servicesOffice.length">ไม่พบรายการ</a>
+      <a class="item" ng-repeat="s in servicesOffice | filter: query" ng-if="servicesOffice.length">
+        {{ s.off_name }}
+        <span class="badge badge-assertive">{{ s.total }}</span>
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>

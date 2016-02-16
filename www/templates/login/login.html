@@ -1,0 +1,23 @@
+<ion-view title="Please login" hide-back-button="false">
+  <ion-content>
+    <form name="frmLogin">
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Username</span>
+        <input type="text" placeholder="Username" ng-model="$parent.username" ng-required="true">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Password</span>
+        <input type="password" placeholder="Password" ng-model="$parent.password" ng-required="true">
+      </label>
+    </div>
+
+    <div class="padding">
+      <button class="button button-positive button-block"
+      ng-disabled="frmLogin.$invalid" ng-click="doLogin()">Login
+      </button>
+    </div>
+
+  </form>
+  </ion-content>
+</ion-view>

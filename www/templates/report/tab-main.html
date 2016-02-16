@@ -1,0 +1,23 @@
+<ion-view view-title="Dashboard">
+  <ion-nav-buttons side="right">
+ <a ui-sref="intro" class="button button-icon icon ion-unlocked" ng-click="logout()"></a>
+</ion-nav-buttons>
+  <ion-content>
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="$parent.query">
+      </label>
+    </div>
+
+    <div class="list">
+      <a href="#" class="item" ng-if="!services.length">ไม่พบรายการ</a>
+      <a class="item" href="#/report/office-list/{{s.code}}" ng-repeat="s in services | filter: query" ng-if="services.length">
+        {{ s.name }}
+        <span class="badge badge-assertive">{{ s.total }}</span>
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,56 @@
+<ion-view view-title="View/Remove">
+  <ion-nav-buttons side="right">
+      <a class="button button-icon ion-ios-trash" ng-click="remove()"></a>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_account_circle.png">
+        <h2>ข้อมูลทั่วไป</h2>
+        <p>รายละเอียดทั่วไปของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <label class="item item-input">
+          <span class="input-label">วันที่รับบริการ</span>
+          <input type="text" ng-model="$parent.date_serv" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">วันที่บันทึก</span>
+          <input type="text" ng-model="$parent.date_report" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">เพศ</span>
+          <input type="text" ng-model="$parent.sex" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">สถานบริการ</span>
+          <input type="text" ng-model="$parent.off_name" ng-disabled="true">
+        </label>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_content_paste.png">
+        <h2>ข้อมูลรับบริการ</h2>
+        <p>ข้อมูลรับบริการของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <a class="item item-icon-right" ng-click="viewImage()">
+           ดูรูปภาพ
+           <i class="icon ion-ios-search-strong balanced"></i>
+        </a>
+        <div class="item item-image">
+          <img ng-src="{{img}}" />
+        </div>
+      </div>
+    </div>
+
+    <script id="image-modal.html" type="text/ng-template">
+              <div class="modal image-modal transparent" ng-click="closeModal()">
+                  <ion-pane class="transparent">
+                     <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
+                  </ion-pane>
+              </div>
+          </script>
+  </ion-content>
+</ion-view>

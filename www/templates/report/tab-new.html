@@ -1,0 +1,69 @@
+<ion-view view-title="New Report">
+  <ion-nav-buttons side="right">
+      <a class="button button-icon ion-android-done" ng-click="saveReport()"></a>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_account_circle.png">
+        <h2>ข้อมูลทั่วไป</h2>
+        <p>รายละเอียดทั่วไปของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <label class="item item-input">
+          <span class="input-label">วันที่รับบริการ</span>
+          <input type="date" ng-model="$parent.service.date_serv">
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            เพศ
+          </div>
+          <select ng-model="$parent.service.sex">
+            <option ng-value="1">ชาย</option>
+            <option ng-value="2">หญิง</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            อำเภอ
+          </div>
+          <select ng-model="$parent.service.amp" ng-change="getTambol()">
+            <option ng-repeat="a in ampur" value="{{ a.code }}">{{ a.name }}</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            ตำบล
+          </div>
+          <select ng-model="$parent.service.tmb" ng-change="getOffice()">
+            <option ng-repeat="t in tambol" value="{{ t.code }}">{{ t.name }}</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            สถานบริการ
+          </div>
+          <select ng-model="$parent.service.office">
+            <option ng-repeat="o in offices" value="{{ o.off_id }}">{{ o.off_name}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_content_paste.png">
+        <h2>ข้อมูลรับบริการ</h2>
+        <p>ข้อมูลรับบริการของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <a class="item item-icon-right" ng-click="takePicture()">
+           อัปโหลดภาพ
+           <i class="icon ion-ios-camera assertive"></i>
+        </a>
+        <div class="item item-image">
+          <img ng-src="{{img}}" />
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

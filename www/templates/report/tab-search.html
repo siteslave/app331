@@ -1,0 +1,48 @@
+<ion-view title="Search/Remove">
+  <ion-nav-buttons side="right">
+      <a class="button button-icon ion-ios-search-strong" ng-click="search()"></a>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <div class="list card">
+      <div class="item item-divider">
+       เงื่อนไขการค้นหา
+     </div>
+      <label class="item item-input">
+        <span class="input-label">วันที่รับบริการ</span>
+        <input type="date" ng-model="$parent.dateServ">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          อำเภอ
+        </div>
+        <select ng-model="$parent.amp" ng-change="getOffice()">
+          <option ng-repeat="a in ampur" value="{{ a.code }}">{{ a.name }}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          หน่วยบริการ
+        </div>
+        <select ng-model="$parent.office">
+          <option ng-repeat="o in offices" value="{{ o.off_id }}">{{ o.off_name}}</option>
+        </select>
+      </label>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">
+       ผลการค้นหา
+     </div>
+     <div class="list">
+       <a class="item" ng-if="!services.length">ไม่พบข้อมูล</a>
+       <a class="item item-icon-left" href="#/report/edit/{{ s.id }}" ng-repeat="s in services" ng-if="services.length">
+         <i class="icon ion-camera"></i>
+         {{ s.date_serv}}
+         <span class="item-note">
+           {{ s.date_report }}
+         </span>
+       </a>
+     </div>
+   </div>
+  </ion-content>
+</ion-view>

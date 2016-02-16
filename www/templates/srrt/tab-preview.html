@@ -1,0 +1,45 @@
+<ion-view view-title="Preview">
+  <ion-nav-buttons side="right">
+   <a ui-sref="intro" class="button button-icon ion-ios-camera" ng-click="upload()"></a>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_account_circle.png">
+        <h2>ข้อมูลทั่วไป</h2>
+        <p>รายละเอียดทั่วไปของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <label class="item item-input">
+          <span class="input-label">วันที่รับบริการ</span>
+          <input type="text" ng-model="$parent.date_serv" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">วันที่บันทึก</span>
+          <input type="text" ng-model="$parent.date_report" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">เพศ</span>
+          <input type="text" ng-model="$parent.sex" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">สถานบริการ</span>
+          <input type="text" ng-model="$parent.off_name" ng-disabled="true">
+        </label>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_content_paste.png">
+        <h2>ข้อมูลรับบริการ</h2>
+        <p>ข้อมูลรับบริการของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <a class="item item-icon-right" href="#/srrt/srrt-view-image/{{ image }}">
+           ดูรูปภาพ
+           <i class="icon ion-ios-search-strong balanced"></i>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

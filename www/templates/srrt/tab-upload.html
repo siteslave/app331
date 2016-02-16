@@ -1,0 +1,62 @@
+<ion-view view-title="Upload images">
+  <ion-nav-buttons side="right">
+   <a ui-sref="intro" class="button button-icon ion-ios-checkmark-empty" ng-click="save()"></a>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_account_circle.png">
+        <h2>ข้อมูลทั่วไป</h2>
+        <p>รายละเอียดทั่วไปของผู้ป่วย</p>
+      </div>
+      <div class="item item-body">
+        <label class="item item-input">
+          <span class="input-label">วันที่รับบริการ</span>
+          <input type="text" ng-model="$parent.date_serv" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">วันที่บันทึก</span>
+          <input type="text" ng-model="$parent.report_date_0" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">เพศ</span>
+          <input type="text" ng-model="$parent.sex" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">สถานบริการ</span>
+          <input type="text" ng-model="$parent.off_name" ng-disabled="true">
+        </label>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/ic_content_paste.png">
+        <h2>ข้อมูลกิจกรรม</h2>
+        <p>บันทึกภาพกิจกรรมที่ได้ดำเนินงาน</p>
+      </div>
+      <div class="item">
+        <a class="item item-thumbnail-left">
+          <img ng-src="{{img_report_0_url}}">
+           <h2>ข้อมูลการรับบริการ</h2>
+           <p>{{ report_date_0 }}</p>
+        </a>
+        <a class="item item-thumbnail-left" ng-click="takePicture(1)">
+          <img ng-src="{{img_report_1_url}}">
+           <h2>3 ชั่วโมงแรก</h2>
+           <p>{{ report_date_1 }}</p>
+        </a>
+        <a class="item item-thumbnail-left" ng-click="takePicture(2)">
+          <img ng-src="{{img_report_2_url}}">
+           <h2>3 ชั่วโมงที่สอง</h2>
+           <p>{{ report_date_2 }}</p>
+        </a>
+        <a class="item item-thumbnail-left" ng-click="takePicture(3)">
+          <img ng-src="{{img_report_3_url}}">
+           <h2>1 วัน</h2>
+           <p>{{ report_date_3 }}</p>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
